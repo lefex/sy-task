@@ -1,4 +1,4 @@
-import Queue from './queue.js';
+import {SYQueue} from './sy-task.esm-bundler.js';
 
 export const queue = {
     everyDay(data) {
@@ -38,7 +38,7 @@ export const queue = {
         });
     },
     run() {
-        let queue = new Queue();
+        let queue = new SYQueue();
         let tasks = [this.everyDay, this.newUser, this.vip];
         // queue.race(tasks).then(res => {
         //     console.log('queue finished =', res);

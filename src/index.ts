@@ -4,10 +4,10 @@
  * @description entry
  */
 
-import Pipeline from './pipeline';
-import Queue from './queue';
+import SYPipeline from './pipeline';
+import SYQueue from './queue';
 
 export {
-    Pipeline,
-    Queue
+    SYPipeline,
+    SYQueue
 };

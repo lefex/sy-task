@@ -1,4 +1,4 @@
-import Pipeline from './pipeline.js';
+import {SYPipeline} from './sy-task.esm-bundler.js';
 
 export const popManager = {
     data: {
@@ -6,7 +6,7 @@ export const popManager = {
     },
     run() {
         // create a pipeline
-        let pipeline = new Pipeline(this.data);
+        let pipeline = new SYPipeline(this.data);
 
         // add task
         pipeline.use((data, next) => {

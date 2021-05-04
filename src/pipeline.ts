@@ -4,13 +4,11 @@
  * @description the pipeline
  */
 
-export interface Data {
-    [x: string]: any;
-}
-export type PipelineData = Record<string, any>;
-export type NextData = any;
-export type NextFn = (data?: NextData) => void;
-export type MiddleWareFn = (data: Data, next: NextFn) => void;
+import {
+    PipelineData,
+    MiddleWareFn,
+    NextFn
+} from './types/index';
 
 const DEBUG = false;
 const debug = (msg: any) => {
@@ -40,7 +38,7 @@ class Layer {
     }
 }
 
-export default class Pipeline {
+export default class SYPipeline {
     data: PipelineData;
     private readonly _stacks: Layer[] = [];
     private _runIndex: number = 0;

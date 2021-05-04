@@ -4,12 +4,12 @@
  * @description task excute in queue
  */
 
-export interface ResData {
-    [x: string]: any;
-}
-export type Task = ((data?: any) => any) | Promise<any>;
+import {
+    ResData,
+    Task
+} from './types/index';
 
-export default class Queue {
+export default class SYQueue {
     tasks: Task[] = [];
     data: ResData;
 

@@ -1,6 +1,22 @@
-# easy task
+# sy-task
 
 easy run sync or asyn task
+
+## install
+
+```shell
+npm install sy-task
+```
+
+## run this project
+
+```shell
+npm run dev
+
+then:
+open in browser http://localhost:8888/pipeline.html
+open in browser http://localhost:8888/queue.html
+```
 
 ## pipeline
 
@@ -10,7 +26,7 @@ Add three tasks to pipeline, they will run one by one. You can call next functio
 // create a pipeline
 // The data can be used in every task
 let data = {};
-let pipeline = new Pipeline(data);
+let pipeline = new SYPipeline(data);
 
 // The use method to add task to pipeline
 // add sync task to pipeline, the task must a function that have (data, next) params
@@ -69,8 +85,8 @@ const vip = (data) => {
     });
 };
 
-// create a Queue
-let queue = new Queue();
+// create a SYQueue
+let queue = new SYQueue();
 // crate a task array
 let tasks = [everyDay, newUser, vip];
 // find the first resolve task
@@ -108,8 +124,8 @@ const vip = (data) => {
     });
 };
 
-// create a Queue
-let queue = new Queue();
+// create a SYQueue
+let queue = new SYQueue();
 // crate a task array
 let tasks = [everyDay, newUser, vip];
 // run task one by one
@@ -127,7 +143,7 @@ queue.serial(tasks).then(res => {
 
 ## queue.parallel
 
-Run task parallelly, you can set the value to limit how many task to run. One task will begin run when a task resolve. Queue will stop when all tasks finish.
+Run task parallelly, you can set the value to limit how many task to run. One task will begin run when a task resolve. SYQueue will stop when all tasks finish.
 
 ```js
 // a task
@@ -151,8 +167,8 @@ const vip = (data) => {
     });
 };
 
-// create a Queue
-let queue = new Queue();
+// create a SYQueue
+let queue = new SYQueue();
 // crate a task array
 let tasks = [everyDay, newUser, vip];
 // only two tasks can run at a time

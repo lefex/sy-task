@@ -5,13 +5,13 @@
  * @document https://www.jestjs.cn/docs/getting-started
  */
 
-import Queue from '../src/queue';
+import SYQueue from '../src/queue';
 
-test('new Queue with data.name equal suyan', () => {
+test('new SYQueue with data.name equal suyan', () => {
     let data = {
         name: 'suyan'
     };
-    let queue = new Queue(data);
+    let queue = new SYQueue(data);
     expect(queue.data.name).toBe('suyan');
 });
 
@@ -36,7 +36,7 @@ test('queue race', () => {
     let data = {
         queueName: 'race'
     };
-    const queue = new Queue(data);
+    const queue = new SYQueue(data);
     const tasks = [everyDay, newUser, vip];
     return queue.race(tasks).then(res => {
         expect(res).toBe('new user');
@@ -52,7 +52,7 @@ test('queue race one task', () => {
             }, 1);
         });
     };
-    const queue = new Queue();
+    const queue = new SYQueue();
     const tasks = [vip];
     return queue.race(tasks).then(res => {
         expect(res).toBe('vip');
@@ -80,7 +80,7 @@ test('queue serial', () => {
     let data = {
         queueName: 'serial'
     };
-    const queue = new Queue(data);
+    const queue = new SYQueue(data);
     const tasks = [everyDay, newUser, vip];
     return queue.serial(tasks).then(res => {
         expect(res[0]).toBe('every day');
@@ -111,7 +111,7 @@ test('queue parallel', () => {
     let data = {
         queueName: 'parallel'
     };
-    const queue = new Queue(data);
+    const queue = new SYQueue(data);
     const tasks = [everyDay, newUser, vip];
     return queue.parallel(tasks, 2).then(res => {
         console.log(res);
@@ -130,7 +130,7 @@ test('queue parallel one task, limit > task.length', () => {
             }, 1);
         });
     };
-    const queue = new Queue();
+    const queue = new SYQueue();
     const tasks = [newUser];
     return queue.parallel(tasks, 2).then(res => {
         console.log(res);
@@ -146,7 +146,7 @@ test('queue parallel one task, limit <= task.length', () => {
             }, 1);
         });
     };
-    const queue = new Queue();
+    const queue = new SYQueue();
     const tasks = [newUser];
     return queue.parallel(tasks, 1).then(res => {
         console.log(res);

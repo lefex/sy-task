@@ -16,6 +16,7 @@ module.exports = {
     ignorePatterns: [
         'node_modules/*',
         '.eslintrc.js',
-        'dist/*'
+        'dist/*',
+        'tsconfig/base.json'
     ]
 };

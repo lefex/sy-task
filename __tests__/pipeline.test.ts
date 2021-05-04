@@ -5,13 +5,13 @@
  * @document https://www.jestjs.cn/docs/getting-started
  */
 
-import Pipeline from '../src/pipeline';
+import SYPipeline from '../src/pipeline';
 
 test('new Pileline with data.name equal suyan', () => {
     let data = {
         name: 'suyan'
     };
-    let pipeline = new Pipeline(data);
+    let pipeline = new SYPipeline(data);
     expect(pipeline.data.name).toBe('suyan');
 });
 
@@ -19,7 +19,7 @@ test('pipeline use sync task, taskId equal every', done => {
     let data = {
         taskId: ''
     };
-    let pipeline = new Pipeline(data);
+    let pipeline = new SYPipeline(data);
     pipeline.use((data, next) => {
         data.taskId = 'every';
         next();
@@ -39,7 +39,7 @@ test('pipeline use async task, taskId equal everyasync', done => {
     let data = {
         taskId: ''
     };
-    let pipeline = new Pipeline(data);
+    let pipeline = new SYPipeline(data);
     pipeline.use((data, next) => {
         setTimeout(() => {
             data.taskId = 'everyasync';
@@ -61,7 +61,7 @@ test('pipeline use sync/async task, 3 task finished', done => {
     let data = {
         tasks: []
     };
-    let pipeline = new Pipeline(data);
+    let pipeline = new SYPipeline(data);
     pipeline.use((data, next) => {
         setTimeout(() => {
             data.tasks.push('task1');
@@ -99,8 +99,8 @@ test('pipeline this in => function', done => {
         name: 'suyan',
         run(this: any) {
             // create a pipeline
-            let pipeline = new Pipeline(this.data);
-    
+            let pipeline = new SYPipeline(this.data);
+
             // add task
             pipeline.use((data, next) => {
                 try {
@@ -128,8 +128,8 @@ test('pipeline this in common function', done => {
         },
         run(this: any) {
             // create a pipeline
-            let pipeline = new Pipeline(this.data);
-    
+            let pipeline = new SYPipeline(this.data);
+
             // add task
             let that = this;
             pipeline.use(function (data, next) {
