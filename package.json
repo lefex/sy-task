@@ -12,7 +12,7 @@
     "dist/**/*"
   ],
   "scripts": {
-    "test": "jest --config jestconfig.json --coverage",
+    "test": "jest --config jestconfig.json",
     "build": "rollup -c rollup.config.js",
     "build:ts": "npm run build:umd && npm run build:esm",
     "build:umd": "tsc --build tsconfig.umd.json",
