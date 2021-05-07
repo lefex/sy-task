@@ -1,6 +1,6 @@
 {
   "name": "sy-task",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "easy run sync or asyn task",
   "main": "dist/sy-task.cjs.js",
   "unpkg": "dist/sy-task.global.js",
@@ -19,7 +19,7 @@
     "build:esm": "tsc --build tsconfig.esm.json",
     "lint": "eslint",
     "dev": "npm run build && node ./examples/app",
-    "pub": "npm run build && npm publish"
+    "pub": "npm run test && npm run build && npm publish"
   },
   "keywords": [
     "promise",

@@ -1,9 +1,9 @@
 // SYPipeline
 export type PipelineData = Record<string, any>;
-export type NextFn = (data?: NextData) => void;
+export type NextFn = (data?: any) => void;
 export type MiddleWareFn = (data: Data, next: NextFn) => void;
 
-export default class SYPipeline {
+export class SYPipeline {
     data: PipelineData;
     constructor(data: PipelineData);
     use(handler: MiddleWareFn): void;
@@ -17,7 +17,7 @@ export interface ResData {
 }
 export type Task = ((data?: any) => any) | Promise<any>;
 
-export default class SYQueue {
+export class SYQueue {
     tasks: Task[];
     data: ResData;
     constructor(data?: ResData);

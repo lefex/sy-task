@@ -114,7 +114,6 @@ test('queue parallel', () => {
     const queue = new SYQueue(data);
     const tasks = [everyDay, newUser, vip];
     return queue.parallel(tasks, 2).then(res => {
-        console.log(res);
         expect(res[0]).toBe('every day');
         expect(res[1]).toBe('new user');
         expect(res[2]).toBe('vip');
@@ -133,7 +132,6 @@ test('queue parallel one task, limit > task.length', () => {
     const queue = new SYQueue();
     const tasks = [newUser];
     return queue.parallel(tasks, 2).then(res => {
-        console.log(res);
         expect(res[0]).toBe('new user');
     });
 });
@@ -149,7 +147,6 @@ test('queue parallel one task, limit <= task.length', () => {
     const queue = new SYQueue();
     const tasks = [newUser];
     return queue.parallel(tasks, 1).then(res => {
-        console.log(res);
         expect(res[0]).toBe('new user');
     });
 });
